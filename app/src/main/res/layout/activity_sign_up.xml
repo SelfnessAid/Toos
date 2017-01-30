@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_splash"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#C62035"
+    tools:context="com.mobi.goldstar.toosapp.SplashActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="150dp"
+        android:id="@+id/app_logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/white"
+        android:id="@+id/textView"
+        android:layout_below="@+id/app_logo"
+        android:layout_centerHorizontal="true" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#c44158"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/relativeLayout">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="16dp"
+                android:gravity="center_vertical"
+                android:text="@string/logIn_suggestion"
+                android:id="@+id/logIn_suggestion_label" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="16dp"
+                android:gravity="center_vertical"
+                android:text="@string/login"
+                android:textStyle="bold"
+                android:id="@+id/logIn_button"
+                android:clickable="true"
+                android:layout_toEndOf="@+id/logIn_suggestion_label"
+                android:layout_marginLeft="5dp"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="80dp"
+        android:background="@drawable/rounded_textview"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="60dp"
+        android:id="@+id/signup_email_textview"
+        android:hint="Enter Email"
+        android:paddingLeft="20dp"
+        android:gravity="center_vertical"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="80dp"
+        android:background="@drawable/rounded_textview"
+        android:hint="Entere password"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:id="@+id/signup_password_textview"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/signup_email_textview"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="80dp"
+        android:background="@drawable/rounded_textview_with_transparent"
+        android:layout_marginTop="15dp"
+        android:id="@+id/signup_next_button"
+        android:layout_below="@+id/signup_password_textview"
+        android:layout_centerHorizontal="true"
+        android:text="Next"
+        android:gravity="center_vertical|center_horizontal"/>
+
+</RelativeLayout>
