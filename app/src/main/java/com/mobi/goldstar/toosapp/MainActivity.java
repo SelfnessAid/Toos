@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelected(@IdRes int tabId) {
+                contentLayout.removeAllViews();
                 if (tabId == R.id.tab_home) {
                     RelativeLayout view = (RelativeLayout) inflater.inflate(R.layout.activity_home, null);
                     contentLayout.addView(view);
