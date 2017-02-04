@@ -11,6 +11,7 @@ import org.w3c.dom.Text;
 public class SignUpActivity extends AppCompatActivity {
 
     private TextView nextBtn;
+    private TextView signinBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +20,15 @@ public class SignUpActivity extends AppCompatActivity {
 
         nextBtn = (TextView) findViewById(R.id.signup_next_button);
         nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent loginIntent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(loginIntent);
+            }
+        });
+
+        signinBtn = (TextView) findViewById(R.id.logIn_button);
+        signinBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent loginIntent = new Intent(getApplicationContext(), LoginActivity.class);

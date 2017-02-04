@@ -9,18 +9,18 @@
         android:layout_height="20dp"
         android:text="32s"
         android:textColor="@android:color/background_dark"
-        android:textSize="16dp"
+        android:textSize="12dp"
         android:layout_alignBaseline="@+id/usr_id"
         android:layout_alignBottom="@+id/usr_id"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="5dp"
+        android:layout_marginEnd="10dp"
         android:id="@+id/post_time" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:text="Anna Sliva Akkuro"
-        android:textSize="16dp"
+        android:textSize="12dp"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold"
         android:layout_marginStart="5dp"
@@ -48,7 +48,7 @@
         android:layout_below="@+id/usr_id"
         android:text="Nice To Meet You"
         android:layout_centerHorizontal="true"
-        android:textSize="18dp"
+        android:textSize="14dp"
         android:textColor="@android:color/background_dark"/>
 
     <ImageView

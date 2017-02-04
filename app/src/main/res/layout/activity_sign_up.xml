@@ -63,7 +63,7 @@
         </RelativeLayout>
     </RelativeLayout>
 
-    <TextView
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:layout_marginLeft="80dp"
@@ -77,7 +77,7 @@
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true" />
 
-    <TextView
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:layout_marginLeft="80dp"

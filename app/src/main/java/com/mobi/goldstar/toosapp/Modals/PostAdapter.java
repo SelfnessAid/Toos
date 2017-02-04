@@ -17,6 +17,7 @@ import com.mobi.goldstar.toosapp.R;
 
 import org.w3c.dom.Text;
 
+import java.net.URI;
 import java.util.ArrayList;
 
 
@@ -81,10 +82,10 @@ public class PostAdapter extends BaseAdapter {
                 item.post_video.setVisibility(View.GONE);
                 break;
             case 2: //Video
-                item.post_img.setVisibility(View.GONE);
+                item.post_img.setVisibility(View.INVISIBLE);
                 item.post_video.setVisibility(View.VISIBLE);
-                Uri uri = Uri.parse(post.usr_post_video_url);
-                item.post_video.setVideoURI(uri);
+                item.post_video.setVideoURI(Uri.parse(post.usr_post_video_url));
+                item.post_video.start();
                 break;
             default:
                 break;

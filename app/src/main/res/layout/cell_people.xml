@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="80dp"
+    android:layout_height="match_parent">
+    <com.mobi.goldstar.toosapp.Modals.CircleImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/person2"
+        android:scaleType="centerCrop"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/search_people_item"/>
+</RelativeLayout>

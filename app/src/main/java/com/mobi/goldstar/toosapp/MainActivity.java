@@ -2,20 +2,28 @@ package com.mobi.goldstar.toosapp;
 
 import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
 
+import com.mobi.goldstar.toosapp.Fragments.ChatFragment;
+import com.mobi.goldstar.toosapp.Fragments.HomeFragment;
+import com.mobi.goldstar.toosapp.Fragments.NotificationFragment;
+import com.mobi.goldstar.toosapp.Fragments.SearchFragment;
+import com.mobi.goldstar.toosapp.Fragments.UserFragment;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends FragmentActivity {
 
     private BottomBar bottomBar;
-    private FrameLayout contentLayout;
+    FragmentTransaction transaction;
+
+    HomeFragment homeFragment;
+    SearchFragment searchFragment;
+    ChatFragment chatFragment;
+    NotificationFragment notificationFragment;
+    UserFragment userFragment;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -23,20 +31,41 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bottomBar = (BottomBar) findViewById(R.id.bottomBar);
-        contentLayout = (FrameLayout) findViewById(R.id.contentContainer);
-        final LayoutInflater inflater = (LayoutInflater) this.getSystemService(this.LAYOUT_INFLATER_SERVICE);
+
+
 
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelected(@IdRes int tabId) {
-                contentLayout.removeAllViews();
-                if (tabId == R.id.tab_home) {
-                    RelativeLayout view = (RelativeLayout) inflater.inflate(R.layout.activity_home, null);
-                    contentLayout.addView(view);
-                    // The tab with id R.id.tab_favorites was selected,
-                    // change your content accordingly.
+                transaction = getSupportFragmentManager().beginTransaction();
+                switch (tabId) {
+                    case R.id.tab_home:
+                        homeFragment = new HomeFragment();
+                        transaction.replace(R.id.contentContainer, homeFragment);
+                        break;
+                    case R.id.tab_search:
+                        searchFragment = new SearchFragment();
+                        transaction.replace(R.id.contentContainer, searchFragment);
+                        break;
+                    case R.id.tab_chat:
+                        chatFragment = new ChatFragment();
+                        transaction.replace(R.id.contentContainer, chatFragment);
+                        break;
+                    case R.id.tab_notification:
+                        notificationFragment = new NotificationFragment();
+                        transaction.replace(R.id.contentContainer, notificationFragment);
+                        break;
+                    case R.id.tab_profile:
+                        userFragment = new UserFragment();
+                        transaction.replace(R.id.contentContainer, userFragment);
+                        break;
+                    default:
+                        break;
                 }
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
+
     }
 }

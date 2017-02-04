@@ -9,6 +9,7 @@ import android.widget.TextView;
 public class SplashActivity extends AppCompatActivity {
 
     private TextView signupBtn;
+    private TextView signinBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,14 @@ public class SplashActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent signupIntent = new Intent(getApplicationContext(), SignUpActivity.class);
                 startActivity(signupIntent);
+            }
+        });
+        signinBtn = (TextView) findViewById(R.id.logIn_button);
+        signinBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent signinIntent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(signinIntent);
             }
         });
     }
