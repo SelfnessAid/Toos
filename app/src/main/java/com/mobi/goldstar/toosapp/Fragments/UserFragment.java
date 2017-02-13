@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 import com.mobi.goldstar.toosapp.Modals.PostAdapter;
 import com.mobi.goldstar.toosapp.Modals.PostModel;
+import com.mobi.goldstar.toosapp.Modals.UserAdapter;
 import com.mobi.goldstar.toosapp.R;
 
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class UserFragment extends Fragment {
 
     private ListView listView;
     ArrayList<PostModel> datas;
-    private static PostAdapter adapter;
+    private static UserAdapter adapter;
 
     public UserFragment() {
         // Required empty public constructor
@@ -43,7 +44,7 @@ public class UserFragment extends Fragment {
         datas.add(new PostModel("Person1", "12s", "Nice to meet you. This is a test post and Wishing you enjoy with this", R.drawable.person5, "android.resource://" + getActivity().getPackageName() + "/" + R.raw.video1, R.drawable.person5, 2));
         datas.add(new PostModel("Person1", "12s", "Nice to meet you. This is a test post and Wishing you enjoy with this", R.drawable.person1, "asdfadsfa", R.drawable.person1, 1));
 
-        adapter = new PostAdapter(getActivity(), datas);
+        adapter = new UserAdapter(getActivity(), datas);
         listView.setAdapter(adapter);
         return view;
     }

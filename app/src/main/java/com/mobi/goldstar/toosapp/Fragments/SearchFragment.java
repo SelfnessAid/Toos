@@ -9,12 +9,14 @@ import android.support.v7.widget.RecyclerView.Adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.ListView;
 
 import com.mobi.goldstar.toosapp.Modals.HashtagsAdaptor;
 import com.mobi.goldstar.toosapp.Modals.PeopleAdapter;
 import com.mobi.goldstar.toosapp.Modals.PostAdapter;
 import com.mobi.goldstar.toosapp.Modals.PostModel;
+import com.mobi.goldstar.toosapp.Modals.SearchAdapter;
 import com.mobi.goldstar.toosapp.R;
 
 import java.util.ArrayList;
@@ -26,7 +28,7 @@ public class SearchFragment extends Fragment {
     ArrayList<Integer> people_datas;
     ArrayList<String> hashtag_datas;
 
-    private static PostAdapter post_adapter;
+    private static SearchAdapter post_adapter;
     private static PeopleAdapter peopleAdapter;
     private static HashtagsAdaptor hashtagsAdaptor;
 
@@ -40,38 +42,9 @@ public class SearchFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_search, container, false);
-        LinearLayoutManager layoutManager= new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL, false);
-        people_listView = (RecyclerView) view.findViewById(R.id.search_people_list_view);
-        people_listView.setLayoutManager(layoutManager);
 
-        people_datas = new ArrayList<>();
-        people_datas.add(R.drawable.person1);
-        people_datas.add(R.drawable.person2);
-        people_datas.add(R.drawable.person3);
-        people_datas.add(R.drawable.person4);
-        people_datas.add(R.drawable.person5);
-        people_datas.add(R.drawable.person2);
-        people_datas.add(R.drawable.person1);
+        View hashtagsView = inflater.inflate(R.layout.hashtags_listview, container, false);
 
-        peopleAdapter = new PeopleAdapter(getActivity(), people_datas);
-        people_listView.setAdapter(peopleAdapter);
-
-        hashtags_listview = (ListView) view.findViewById(R.id.search_hashtags_list_view);
-
-        hashtag_datas = new ArrayList<>();
-        hashtag_datas.add("#Basketball");
-        hashtag_datas.add("#Sports");
-        hashtag_datas.add("#MarchMadness");
-        hashtag_datas.add("#Lakers");
-        hashtag_datas.add("#CollegeBacketball");
-        hashtag_datas.add("#NBA");
-        hashtag_datas.add("#Lebron James");
-        hashtag_datas.add("#Playoffs");
-        hashtag_datas.add("#Raptors");
-        hashtag_datas.add("#Basketball");
-
-        hashtagsAdaptor = new HashtagsAdaptor(getActivity(), hashtag_datas);
-        hashtags_listview.setAdapter(hashtagsAdaptor);
 
         posts_listview = (ListView) view.findViewById(R.id.search_posts_list_view);
         post_datas = new ArrayList<>();
@@ -82,8 +55,9 @@ public class SearchFragment extends Fragment {
         post_datas.add(new PostModel("Person1", "12s", "Nice to meet you. This is a test post and Wishing you enjoy with this", R.drawable.person5, "android.resource://" + getActivity().getPackageName() + "/" + R.raw.video1, R.drawable.person5, 2));
         post_datas.add(new PostModel("Person1", "12s", "Nice to meet you. This is a test post and Wishing you enjoy with this", R.drawable.person1, "asdfadsfa", R.drawable.person1, 1));
 
-        post_adapter = new PostAdapter(getActivity(), post_datas);
+        post_adapter = new SearchAdapter(getActivity(), post_datas);
         posts_listview.setAdapter(post_adapter);
+
         return view;
     }
 
